@@ -33,27 +33,6 @@
         .login-container input[type="submit"]:hover {
             background-color: #45a049; /* Darker green on hover */
         }
-        .register-container {
-            margin-top: 100px;
-        }
-        .register-container input[type="text"],
-        .register-container input[type="password"] {
-            padding: 10px;
-            font-size: 16pt;
-            margin: 10px;
-            width: 200px;
-        }
-        .register-container input[type="submit"] {
-            padding: 10px 20px;
-            background-color: #4CAF50; /* Green background */
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16pt;
-        }
-        .register-container input[type="submit"]:hover {
-            background-color: #45a049; /* Darker green on hover */
-        }
         nav {
             margin-bottom: 20px;
         }
@@ -118,19 +97,6 @@
                 alert('Invalid password');
             }
         }
-
-        function showRegister() {
-            document.getElementById('login-container').classList.add('hidden');
-            document.getElementById('register-container').classList.remove('hidden');
-        }
-
-        function register(event) {
-            event.preventDefault();
-            const newUsername = document.getElementById('new-username').value;
-            const newPassword = document.getElementById('new-password').value;
-            alert(`Registration request for username: ${newUsername}, password: ${newPassword}`);
-            // In a real application, you would send this data to the server for processing
-        }
     </script>
 </head>
 <body>
@@ -138,14 +104,6 @@
         <form onsubmit="login(event)">
             <input type="password" id="password" placeholder="Enter Password" required>
             <input type="submit" value="Login">
-        </form>
-        <button onclick="showRegister()">Register</button>
-    </div>
-    <div id="register-container" class="register-container hidden">
-        <form onsubmit="register(event)">
-            <input type="text" id="new-username" placeholder="New Username" required>
-            <input type="password" id="new-password" placeholder="New Password" required>
-            <input type="submit" value="Register">
         </form>
     </div>
     <div id="main-content" class="hidden">
