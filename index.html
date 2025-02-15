@@ -40,6 +40,25 @@
         button:hover {
             background-color: #45a049; /* Darker green on hover */
         }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input[type="text"] {
+            padding: 10px;
+            font-size: 16pt;
+            width: 300px;
+        }
+        .search-bar input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16pt;
+        }
+        .search-bar input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
     </style>
 </head>
 <body>
@@ -49,6 +68,10 @@
         <a href="https://www.reddit.com">Reddit</a>
     </nav>
     <h1>What it do</h1>
+    <form class="search-bar" action="https://www.google.com/search" method="get">
+        <input type="text" name="q" placeholder="Search Google...">
+        <input type="submit" value="Search">
+    </form>
     <button onclick="alert('Jorktastic!')">John</button>
 </body>
 </html>
