@@ -9,6 +9,9 @@
             text-align: center;
             background-color: #f0f8ff; /* Light blue background */
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .hidden {
             display: none;
@@ -85,6 +88,18 @@
         .image-container {
             margin-top: 20px;
         }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+        }
+        .main-content {
+            flex: 1;
+        }
+        .twitter-feed {
+            width: 300px;
+            margin-left: 20px;
+        }
     </style>
     <script>
         function login(event) {
@@ -107,19 +122,27 @@
         </form>
     </div>
     <div id="main-content" class="hidden">
-        <nav>
-            <a href="https://www.google.com">Google</a>
-            <a href="https://www.github.com">GitHub</a>
-            <a href="https://www.reddit.com">Reddit</a>
-        </nav>
-        <h1>What it do</h1>
-        <form class="search-bar" action="https://www.google.com/search" method="get">
-            <input type="text" name="q" placeholder="Search Google...">
-            <input type="submit" value="Search">
-        </form>
-        <button onclick="alert('Jorktastic!')">John</button>
-        <div class="image-container">
-            <img src="beng.jpeg" alt="bonk" width="300">
+        <div class="content">
+            <div class="main-content">
+                <nav>
+                    <a href="https://www.google.com">Google</a>
+                    <a href="https://www.github.com">GitHub</a>
+                    <a href="https://www.reddit.com">Reddit</a>
+                </nav>
+                <h1>What it do</h1>
+                <form class="search-bar" action="https://www.google.com/search" method="get">
+                    <input type="text" name="q" placeholder="Search Google...">
+                    <input type="submit" value="Search">
+                </form>
+                <button onclick="alert('Jorktastic!')">John</button>
+                <div class="image-container">
+                    <img src="beng.jpeg" alt="bonk" width="300">
+                </div>
+            </div>
+            <div class="twitter-feed">
+                <a class="twitter-timeline" href="https://twitter.com/RiceTheUnborn?ref_src=twsrc%5Etfw">Tweets by RiceTheUnborn</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
         </div>
     </div>
 </body>
