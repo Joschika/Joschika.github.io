@@ -1,4 +1,3 @@
-
 # attempting film
 
 Recently, I was exposed to a complication of short form content revolving between the discourse of a digital street photographer and an older NYC based street photographer who was a fan of film. 
@@ -13,18 +12,18 @@ However, something that was said early on in the series was that "film slows you
 In a follow up post, I'd like to expand on the idea behind abstraction from the creative process. If my hook on film was the idea of slowing down, my lasting intrigue has been how the process of film photography abstracts you less from the process than digital. It's an addiciting endevour thats immensely rewarding, while challenging. The following few photos are from my first attempts with film this past week. These are Black and White photos, developed at home. I choose Black and White as my understanding was that BW development was slightly easier. While I enjoy black and white photos and understand the attraction, its been a challenge as well to take interesting shots. I find myself missing color and I'm gathering resources to attempt color development soon.
 
 <figure>
-  <img src=../assets/photos/DSC02247-positive.jpg alt="mother" style="max-width:100%;" />
+  <img src="{{ site.baseurl }}/assets/photos/DSC02247-positive.jpg" alt="mother" />
   <figcaption>mother</figcaption>
 </figure>
 
 <figure>
-  <img src=../assets/photos/DSC02257-positive.jpg alt="bread" style="max-width:100%;" />
+  <img src="{{ site.baseurl }}/assets/photos/DSC02257-positive.jpg" alt="bread" style="max-width:100%;" />
   <figcaption>bread</figcaption>
 </figure>
 
 
 <figure>
-  <img src=../assets/photos/DSC02261-positive.jpg style="max-width:100%;" />
+  <img src="{{ site.baseurl }}/assets/photos/DSC02261-positive.jpg" alt="buildings" style="max-width:100%;" />
   <figcaption>buildings</figcaption>
 </figure>
 
