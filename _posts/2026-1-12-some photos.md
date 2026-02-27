@@ -21,24 +21,19 @@ In a follow up post, I'd like to expand on the idea behind abstraction from the 
 
 
 <figure>
-  <img src="{{ site.baseurl }}/assets/photos/DSC02252_positive_bw.jpg" alt="train" style="max-width:100%;" />
-  
+  <img src="{{ site.baseurl }}/assets/photos/DSC02252_positive_bw.jpg" alt="train" loading="lazy" style="max-width:100%;" />
 </figure>
 
 <figure>
-  <img src="{{ site.baseurl }}/assets/photos/DSC02247-positive.jpg" alt="mother" />
-  
+  <img src="{{ site.baseurl }}/assets/photos/DSC02247-positive.jpg" alt="mother" loading="lazy" style="max-width:100%;" />
 </figure>
 
 <figure>
-  <img src="{{ site.baseurl }}/assets/photos/DSC02257-positive.jpg" alt="bread" style="max-width:100%;" />
-  
+  <img src="{{ site.baseurl }}/assets/photos/DSC02257-positive.jpg" alt="bread" loading="lazy" style="max-width:100%;" />
 </figure>
 
-
 <figure>
-  <img src="{{ site.baseurl }}/assets/photos/DSC02261-positive.jpg" alt="buildings" style="max-width:100%;" />
-  
+  <img src="{{ site.baseurl }}/assets/photos/DSC02261-positive.jpg" alt="buildings" loading="lazy" style="max-width:100%;" />
 </figure>
 
 

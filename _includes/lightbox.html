@@ -1,0 +1,155 @@
+<style>
+  .lb-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.88);
+    justify-content: center;
+    align-items: center;
+  }
+  .lb-overlay.lb-active {
+    display: flex;
+    animation: lb-fade 0.2s ease;
+  }
+  @keyframes lb-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .lb-img-wrap {
+    max-width: 90vw;
+    max-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lb-img {
+    max-width: 90vw;
+    max-height: 88vh;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+  }
+  .lb-close,
+  .lb-prev,
+  .lb-next {
+    position: absolute;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+    line-height: 1;
+    padding: 0.4em 0.6em;
+  }
+  .lb-close:hover,
+  .lb-prev:hover,
+  .lb-next:hover { opacity: 1; }
+  .lb-close {
+    top: 1rem;
+    right: 1.2rem;
+    font-size: 2rem;
+  }
+  .lb-prev {
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.2rem;
+  }
+  .lb-next {
+    right: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.2rem;
+  }
+  .lb-counter {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    pointer-events: none;
+  }
+</style>
+
+<div id="lb-overlay" class="lb-overlay" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" aria-label="Close">&times;</button>
+  <button class="lb-prev" aria-label="Previous">&#8592;</button>
+  <button class="lb-next" aria-label="Next">&#8594;</button>
+  <div class="lb-img-wrap">
+    <img id="lb-img" class="lb-img" src="" alt="">
+  </div>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<script>
+(function () {
+  var overlay  = document.getElementById('lb-overlay');
+  var lbImg    = document.getElementById('lb-img');
+  var counter  = document.getElementById('lb-counter');
+  var closeBtn = overlay.querySelector('.lb-close');
+  var prevBtn  = overlay.querySelector('.lb-prev');
+  var nextBtn  = overlay.querySelector('.lb-next');
+
+  var images = [].slice.call(document.querySelectorAll('.gallery-img'))
+    .concat([].slice.call(document.querySelectorAll('.post-content figure img')));
+
+  if (images.length === 0) return;
+
+  var currentIndex = 0;
+  var touchStartX  = 0;
+
+  function openAt(i) {
+    currentIndex = i;
+    lbImg.src = images[i].src;
+    lbImg.alt = images[i].alt;
+    counter.textContent = (i + 1) + ' / ' + images.length;
+    overlay.classList.add('lb-active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    overlay.classList.remove('lb-active');
+    document.body.style.overflow = '';
+  }
+
+  function prev() {
+    openAt((currentIndex - 1 + images.length) % images.length);
+  }
+
+  function next() {
+    openAt((currentIndex + 1) % images.length);
+  }
+
+  images.forEach(function (img, i) {
+    img.addEventListener('click', function () { openAt(i); });
+  });
+
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', function (e) { e.stopPropagation(); prev(); });
+  nextBtn.addEventListener('click', function (e) { e.stopPropagation(); next(); });
+
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('lb-active')) return;
+    if (e.key === 'Escape')      close();
+    else if (e.key === 'ArrowLeft')  prev();
+    else if (e.key === 'ArrowRight') next();
+  });
+
+  overlay.addEventListener('touchstart', function (e) {
+    touchStartX = e.changedTouches[0].clientX;
+  }, { passive: true });
+
+  overlay.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (dx < -50) next();
+    else if (dx > 50) prev();
+  }, { passive: true });
+})();
+</script>

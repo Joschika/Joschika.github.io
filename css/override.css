@@ -43,3 +43,21 @@ hr {
   font-size: 2.5em;
   opacity: 0.3;
 }
+
+/* Gallery image hover */
+.gallery-img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+/* Post body figure images — clickable for lightbox */
+.post-content figure img {
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.post-content figure img:hover {
+  opacity: 0.9;
+}
