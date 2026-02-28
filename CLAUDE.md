@@ -58,3 +58,29 @@ Groups all posts by tag. Posts default to the `Other` tag (set in `_config.yml` 
 - **Plugins**: `jekyll-feed`, `jekyll-sitemap`
 - **Syntax highlighting**: disabled via kramdown config
 - **Title stripping**: enabled via `titles_from_headings` (strip_title: true) — the H1 in post body won't duplicate the page title
+
+## Posting Workflow
+
+Three scripts in `scripts/` reduce the friction of creating and publishing posts.
+
+### `scripts/new-post.sh`
+Creates a dated post file with front matter skeleton and opens it in VS Code.
+```bash
+bash scripts/new-post.sh
+```
+Prompts for a title, slugifies it, and writes `_posts/YYYY-MM-DD-slug.md`.
+
+### `scripts/add-photos.sh`
+Copies JPG/JPEG photos into `assets/photos/` and prints ready-to-paste front matter + figure HTML.
+```bash
+bash scripts/add-photos.sh /path/to/photos
+# or run without argument to be prompted
+bash scripts/add-photos.sh
+```
+Skips non-JPG files (e.g. TIFs) automatically.
+
+### `scripts/publish.sh`
+Shows changed files, prompts for a commit message (defaults to "update"), then runs `git add -A`, `commit`, and `push`.
+```bash
+bash scripts/publish.sh
+```
