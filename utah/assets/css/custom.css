@@ -27,3 +27,68 @@ body {
   background-color: #000000 !important;
   color: #828282 !important;
 }
+
+/* ---------------------------------------------------------------------------
+   Mobile friendliness (custom additions)
+   The layout JS reads each thumbnail's rendered size to compute the column
+   count, so resizing thumbnails via CSS keeps the grid math correct.
+   --------------------------------------------------------------------------- */
+
+/* Phones: replace the tiny 90px thumbnails with a clean, tappable 2-up grid */
+@media screen and (max-width: 568px) {
+
+  .has-header #thumbnailContainer {
+    padding: 60px 2vw 70px 2vw !important;
+  }
+
+  .thumbnail-size-sm div.thumbnail,
+  .thumbnail-size-md div.thumbnail,
+  .thumbnail-size-lg div.thumbnail {
+    width: 47vw !important;
+    height: 47vw !important;
+    padding: 1.5vw !important;
+    box-sizing: border-box !important;
+  }
+
+  .thumbnail-size-sm div.thumbnail div.image-container,
+  .thumbnail-size-sm div.thumbnail div.image-container div.image,
+  .thumbnail-size-md div.thumbnail div.image-container,
+  .thumbnail-size-md div.thumbnail div.image-container div.image,
+  .thumbnail-size-lg div.thumbnail div.image-container,
+  .thumbnail-size-lg div.thumbnail div.image-container div.image {
+    width: 45vw !important;
+    height: 45vw !important;
+  }
+
+  .thumbnail-size-sm div.thumbnail img,
+  .thumbnail-size-md div.thumbnail img,
+  .thumbnail-size-lg div.thumbnail img {
+    max-width: 45vw !important;
+    max-height: 45vw !important;
+  }
+
+  /* Give the lightbox image far more of the screen */
+  #loupeContainer {
+    padding: 12px 8px 64px 8px !important;
+  }
+
+  #loupeContainer div.side-navigation {
+    padding: 12px 0 64px 0 !important;
+  }
+}
+
+/* Touch devices: the side nav arrows normally only appear on hover, which
+   never fires on touch. Keep them visible so swipe-edge navigation is
+   discoverable. */
+@media (hover: none) {
+
+  #hotspotPrevLoupe:not(.disabled) #buttonPrevSideLoupe {
+    left: 0 !important;
+    opacity: 0.85 !important;
+  }
+
+  #hotspotNextLoupe:not(.disabled) #buttonNextSideLoupe {
+    right: 0 !important;
+    opacity: 0.85 !important;
+  }
+}
